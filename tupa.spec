@@ -12,11 +12,10 @@ Source0:	http://dl.sourceforge.net/tupa/%{name}-v%{version}%{_rc}.tgz
 # Source-md5:	cf0d38f296dd5fa65c9087dd08342a22
 Source1:	%{name}.conf
 BuildRequires:	rpmbuild(macros) >= 1.268
-Requires:       php(mysql)
-Requires:       webapps
-Requires:       webserver(access)
-Requires:       webserver(php)
-BuildArch:      noarch
+Requires:	php(mysql)
+Requires:	webapps
+Requires:	webserver(access)
+Requires:	webserver(php)
 Conflicts:	apache < 2.0.55-2.2
 Conflicts:	apache1 < 1.3.34-3.2
 BuildArch:	noarch
@@ -45,6 +44,7 @@ install *.html $RPM_BUILD_ROOT%{_appdir}
 install config/config_site-dist.inc.php $RPM_BUILD_ROOT%{_sysconfdir}/config_site.inc.php
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
+ln -s %{_sysconfdir}/config_site.inc.php $RPM_BUILD_ROOT%{_appdir}/config/config_site.inc.php
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -65,7 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changelog.txt
 %dir %attr(751,root,http) %{_sysconfdir}
-%attr(640,root,http) %{_sysconfdir}/config_site.inc.php
+%attr(664,root,http) %{_sysconfdir}/config_site.inc.php
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/apache.conf
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httpd.conf
 
@@ -79,4 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_appdir}/lang
 %{_appdir}/lib
 %{_appdir}/skins
-%{_appdir}/stats
+
+%dir %attr(771,root,http) %{_appdir}/stats
+%{_appdir}/stats/*.html
+%{_appdir}/stats/db
