@@ -12,8 +12,11 @@ Source0:	http://dl.sourceforge.net/tupa/%{name}-v%{version}%{_rc}.tgz
 # Source-md5:	cf0d38f296dd5fa65c9087dd08342a22
 Source1:	%{name}.conf
 BuildRequires:	rpmbuild(macros) >= 1.268
-Requires:	webapps
-Requires:	webserver
+Requires:       php(mysql)
+Requires:       webapps
+Requires:       webserver(access)
+Requires:       webserver(php)
+BuildArch:      noarch
 Conflicts:	apache < 2.0.55-2.2
 Conflicts:	apache1 < 1.3.34-3.2
 BuildArch:	noarch
