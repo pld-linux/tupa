@@ -52,7 +52,7 @@ install *.html $RPM_BUILD_ROOT%{_appdir}
 install config/config_site-dist.inc.php $RPM_BUILD_ROOT%{_sysconfdir}/config/config_site.php
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
-install %{SOURCE2} $RPM_BUILD_ROOT%{_bashcompletiondir}/webapp
+install %{SOURCE2} $RPM_BUILD_ROOT%{_bashcompletiondir}/tupa
 
 %clean
 rm -rf $RPM_BUILD_ROOT
