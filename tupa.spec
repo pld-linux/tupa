@@ -12,7 +12,9 @@ Source0:	http://dl.sourceforge.net/tupa/%{name}-v%{version}%{_rc}.tgz
 # Source-md5:	cf0d38f296dd5fa65c9087dd08342a22
 Source1:	%{name}.conf
 BuildRequires:	rpmbuild(macros) >= 1.268
+Requires:	pdns
 Requires:	php(mysql)
+Requires:	rrdtool
 Requires:	webapps
 Requires:	webserver(access)
 Requires:	webserver(php)
