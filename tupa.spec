@@ -44,6 +44,7 @@ install -d $RPM_BUILD_ROOT%{_appdir}/config
 cp -a backup images lib skins stats installer lang $RPM_BUILD_ROOT%{_appdir}
 install *.php $RPM_BUILD_ROOT%{_appdir}
 install *.html $RPM_BUILD_ROOT%{_appdir}
+install login_styles.css $RPM_BUILD_ROOT%{_appdir}
 install config/config_site-dist.inc.php $RPM_BUILD_ROOT%{_sysconfdir}/config_site.inc.php
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
@@ -75,6 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_appdir}
 %{_appdir}/*.php
 %{_appdir}/*.html
+%{_appdir}/login_styles.css
 %{_appdir}/backup
 %{_appdir}/config
 %{_appdir}/images
