@@ -69,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changelog.txt
 %dir %attr(751,root,http) %{_sysconfdir}
-%attr(664,root,http) %{_sysconfdir}/config_site.inc.php
+%attr(664,root,http) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/config_site.inc.php
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/apache.conf
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httpd.conf
 
