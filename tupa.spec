@@ -41,7 +41,7 @@ templates and a lot more.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_sbindir},%{_appdir}}
 install -d $RPM_BUILD_ROOT%{_appdir}/config
-cp -a backup images lib skins stats installer lang $RPM_BUILD_ROOT%{_appdir}
+cp -a backup crontab images lib skins stats installer lang $RPM_BUILD_ROOT%{_appdir}
 install *.php $RPM_BUILD_ROOT%{_appdir}
 install *.html $RPM_BUILD_ROOT%{_appdir}
 install login_styles.css $RPM_BUILD_ROOT%{_appdir}
@@ -78,6 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_appdir}/*.html
 %{_appdir}/login_styles.css
 %{_appdir}/backup
+%{_appdir}/crontab
 %{_appdir}/config
 %{_appdir}/images
 %{_appdir}/installer
